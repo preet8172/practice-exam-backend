@@ -1,0 +1,10 @@
+<%- include('partials/navbar') %>
+<h2>My Stored Inventory Listings</h2>
+<ul>
+    <% products.forEach(product => { %>
+        <li>
+            <strong><%= product.name %></strong> - $<%= product.price %> 
+            (Category: <%= product.category ? product.category.name : 'None' %>)
+        </li>
+    <% }) %>
+</ul>

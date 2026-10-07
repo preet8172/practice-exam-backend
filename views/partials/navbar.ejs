@@ -1,0 +1,14 @@
+<nav style ="background: #333; padding: 15px; color: white; display: flex; gap:20px;">
+    <strong>E-shopping</strong>
+    <a href = "/products" style="color: white; text-decoration: none;">All Products</a>
+    <a href = "/products/my-products" style="color: white; text-decoration: none;">MyProduct</a>
+    <a href = "/products/new" style="color: white; text-decoration: none;">All Product</a>
+    <a href="/categories" style="color: white;text-decoration: none;">categories</a>
+    <span style="margin-left: auto;">Hello,<%=user.username%> (<%= user.role%>)</span>
+    <a href="/auth/logout" style="color: red; text-decoration: none;">Sign Out</a>
+    <% } else {%>
+        <a href="/auth/login" style="color: white; text-decoration: none; margin-left: auto;">login</a>
+        <a href="/auth/register" style="color: white; text-decoration: none;">Register</a>
+        <% }%>
+</nav>
+<hr>

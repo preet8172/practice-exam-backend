@@ -1,0 +1,23 @@
+<%- include('partials/navbar') %>
+<h2>Category List Manager</h2>
+
+<% if (user.role === 'admin') { %>
+    <h3>Add New Category (Admin Only)</h3>
+    <form action="/categories" method="POST">
+        <input type="text" name="name" placeholder="Category Name" required>
+        <button type="submit">Create</button>
+    </form>
+<% } %>
+
+<ul>
+    <% categories.forEach(cat => { %>
+        <li>
+            <%= cat.name %>
+            <% if (user.role === 'admin') { %>
+                <form action="/categories/delete/<%= cat._id %>" method="POST" style="display:inline;">
+                    <button type="submit" style="color:red;">Delete</button>
+                </form>
+            <% } %>
+        </li>
+    <% }) %>
+</ul>

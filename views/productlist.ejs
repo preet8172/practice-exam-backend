@@ -1,0 +1,19 @@
+<%- include('pertials/navbar')%>
+<h2>All Products Platform Registry</h2>
+<form method="GET" action="/products">
+     <select name="categoryFilter" onchange="this.form.submit()">
+        <option value="">All Categories</option>
+        <% categories.forEach(cat => { %>
+            <option value="<%= cat._id %>" <%= selectedCategory == cat._id ? 'selected' : '' %>><%= cat.name %></option>
+        <% }) %>
+    </select>
+</form>
+<ul>
+    <% products.forEach(product => { %>
+        <li>
+            <strong><%= product.name %></strong> - $<%= product.price %> 
+            (Category: <%= product.category ? product.category.name : 'None' %>) 
+            [Listed by: <%= product.createdBy ? product.createdBy.username : 'Unknown' %>]
+        </li>
+    <% }) %>
+</ul>
